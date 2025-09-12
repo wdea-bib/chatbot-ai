@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>الشات بوت المتخصص</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- الشريط الجانبي -->
+    <aside class="sidebar">
+      <h2>المحادثات</h2>
+      <button id="new-chat">➕ محادثة جديدة</button>
+      <ul id="chat-list"></ul>
+    </aside>
+    
+    <!-- منطقة المحادثة -->
+    <main class="chat-container">
+      <header class="chat-header">
+        <select id="personality">
+          <option value="مساعد عادي">مساعد عادي</option>
+          <option value="مساعد تقني">مساعد تقني</option>
+          <option value="معلم">معلم</option>
+          <option value="مساعد مبدع">مساعد مبدع</option>
+        </select>
+      </header>
+
+      <section id="chat-box" class="chat-box"></section>
+
+      <footer class="chat-input">
+        <input id="user-input" type="text" placeholder="اكتب رسالتك..." />
+        <button id="send-button">إرسال</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
