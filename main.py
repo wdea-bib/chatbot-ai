@@ -198,7 +198,7 @@ def build_chat_history(history: Optional[List[Dict[str, str]]]) -> List:
 
 def is_within_specialty_local(question: str, system_prompt: str) -> (bool, str):
     """فحص بسيط إذا السؤال ضمن تخصص المساعد لتقليل استدعاءات API"""
-    keywords = ["html","css","javascript","بايثون","python","web","تطوير الويب","frontend"]
+    keywords = ["html","php","javascript","بايثون","python","web","تطوير الويب","frontend"]
     ql = question.lower()
     if any(kw in ql for kw in keywords):
         return True, ""
@@ -238,9 +238,14 @@ def root():
 @app.post("/chat", response_model=ChatResponse)
 async def chat(req: ChatRequest):
     system_prompt = req.system_prompt or """أنت مساعد عربي مفيد وودود.
+    
 - تحدث باللغة العربية الفصحى أو العامية حسب طلب المستخدم
 - كن دقيقًا في إجاباتك ومفصلاً عندما يطلب المستخدم
 - تحدث فقط عن المواضيع المتعلقة بالويب إذا طُلب ذلك
+-لاتتحدث عن اي شيء ليس متعلق ب css,html,js
+-اجابة مختصرة الا في حال طلب منك ان جيب ب التفصيل 
+-اقتراح اسئلة للمساعدة في اشياء منرتبطة ب السؤالالذي وجه اليك
+-جاوب بطريقة محترمة
 """
 
     # فحص شخصية المساعد
