@@ -1,127 +1,170 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    direction: rtl;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .app-container {
-    display: flex;
-    height: 100vh;
-  }
-  
-  /* === الشريط الجانبي === */
-  .sidebar {
-    width: 250px;
-    background: #2b475e;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-  
-  .sidebar h2 {
-    margin-top: 0;
-  }
-  
-  .sidebar button {
-    margin-bottom: 10px;
-    padding: 8px;
-    background: #4cafef;
-    border: none;
-    cursor: pointer;
-    color: white;
-    border-radius: 5px;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-    overflow-y: auto;
-  }
-  
-  .sidebar ul li {
-    padding: 8px;
-    cursor: pointer;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .sidebar ul li.active {
-    background: #1d3244;
-  }
-  
-  .sidebar ul li button {
-    background: transparent;
-    border: none;
-    color: red;
-    cursor: pointer;
-  }
-  
-  /* === المحادثة === */
-  .chat-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .chat-header {
-    background: #4cafef;
-    padding: 10px;
-    color: white;
-  }
-  
-  .chat-box {
-    flex-grow: 1;
-    padding: 10px;
-    overflow-y: auto;
-    background: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .message {
-    margin: 5px 0;
-    padding: 8px 12px;
-    border-radius: 10px;
-    max-width: 70%;
-  }
-  
-  .message.user {
-    background: #d1ffd6;
-    align-self: flex-end;
-  }
-  
-  .message.bot {
-    background: #eee;
-    align-self: flex-start;
-  }
-  
-  /* === الإدخال === */
-  .chat-input {
-    display: flex;
-    padding: 10px;
-    background: #eee;
-  }
-  
-  .chat-input input {
-    flex-grow: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  .chat-input button {
-    margin-left: 5px;
-    padding: 10px;
-    border: none;
-    background: #4cafef;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Tahoma, Arial, sans-serif;
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+  color: #0f172a;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+}
+
+/* === الشريط الجانبي === */
+.sidebar {
+  width: 280px;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  border-left: 1px solid rgba(255,255,255,0.06);
+}
+
+.sidebar h2 {
+  margin: 6px 0 12px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.sidebar button {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  background: #4f46e5;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(79,70,229,0.35);
+  transition: transform .08s ease, opacity .2s ease;
+}
+.sidebar button:hover { opacity: .95; }
+.sidebar button:active { transform: translateY(1px); }
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.sidebar ul li {
+  padding: 10px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.sidebar ul li.active {
+  background: rgba(99,102,241,0.18);
+}
+
+.sidebar ul li button {
+  background: transparent;
+  border: none;
+  color: #fecaca;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* === المحادثة === */
+.chat-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  background: linear-gradient(90deg, #4338ca, #4f46e5, #6366f1);
+  padding: 12px 16px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 10px 30px rgba(79,70,229,0.25);
+}
+
+.chat-header select {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+.chat-box {
+  flex-grow: 1;
+  padding: 24px 18px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.message {
+  margin: 2px 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  max-width: 75%;
+  line-height: 1.65;
+  font-size: 15px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+
+.message.user {
+  background: #e0f2fe;
+  align-self: flex-end;
+  border-bottom-right-radius: 6px;
+}
+
+.message.bot {
+  background: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 6px;
+}
+
+/* === الإدخال === */
+.chat-input {
+  display: flex;
+  gap: 8px;
+  padding: 14px;
+  background: rgba(99,102,241,0.08);
+  border-top: 1px solid rgba(15,23,42,0.06);
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 14px 16px;
+  border: 1px solid rgba(15,23,42,0.12);
+  border-radius: 999px;
+  outline: none;
+  background: white;
+  font-size: 15px;
+}
+
+.chat-input button {
+  padding: 12px 16px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(79,70,229,0.35);
+}
+
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .chat-box { padding: 16px 12px; }
+}
